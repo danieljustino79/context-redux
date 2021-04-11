@@ -1,9 +1,11 @@
-import {connect} from 'react-redux';
+import {useSelector} from 'react-redux';
 
 import MainNavigation from "../../components/shared/MainNavigation";
 
-function ProductPage({result}){
+function ProductPage(){
     const initialNumber = 10
+    const result = useSelector(state => state.product)
+
     return(
         <div>
             <MainNavigation cartItemNumber={initialNumber} />
@@ -18,10 +20,4 @@ function ProductPage({result}){
     )
 }
 
-function mapStateToProps(state){
-    return {
-        result: state.product
-    }
-}
-
-export default connect(mapStateToProps)(ProductPage);
+export default ProductPage;
